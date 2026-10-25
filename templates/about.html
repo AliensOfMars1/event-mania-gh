@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Event Mania GH{% endblock %}
+{% block meta_description %}Learn about Event Mania GH — a full-service event planning, design and coordination studio based in Accra, Ghana.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container narrow center">
+    <p class="eyebrow">About us</p>
+    <h1>Celebrations with heart &amp; precision.</h1>
+    <p class="lead">Based in Accra. Serving Ghana &amp; beyond.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="split-media">
+      <img src="{{ url_for('static', filename='images/about.jpg') }}" alt="Event Mania GH team at work" loading="lazy" />
+    </div>
+    <div class="split-text">
+      <h2>Our story</h2>
+      <p>Event Mania GH was born from a simple belief: every celebration deserves to feel personal, alive, and unforgettable. What began as a passion for beautiful gatherings has grown into a full-service planning, design, and coordination studio trusted by couples, families, and brands across Ghana.</p>
+      <p>We plan moments rich in tradition and filled with fun, events your guests won't forget.</p>
+    </div>
+  </div>
+</section>  
+
+<section class="section alt">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Our approach</p>
+      <h2>Three things we never compromise</h2>
+    </div>
+    <div class="grid grid-3">
+      <article class="card">
+        <h3>You first</h3>
+        <p>Every decision starts with your vision, your comfort, and your priorities not ours.</p>
+      </article>
+      <article class="card">
+        <h3>Every detail</h3>
+        <p>The smallest touches are often what guests remember. We obsess over them so you don't have to.</p>
+      </article>
+      <article class="card">
+        <h3>Calm execution</h3>
+        <p>On the day, we run a tight, invisible ship so you can be fully present for every moment.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="container center">
+    <h2>Let's create something memorable.</h2>
+    <a href="{{ url_for('contact') }}" class="btn btn-primary">Get in Touch</a>
+  </div>
+</section>
+{% endblock %}

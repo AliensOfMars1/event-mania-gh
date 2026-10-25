@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}Event Mania GH{% endblock %}
+{% block meta_description %}Full planning, design & decor, and day-of coordination services for weddings, birthdays and corporate events in Accra, Ghana.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container narrow center">
+    <p class="eyebrow">Services</p>
+    <h1>Everything your event needs under one roof.</h1>
+    <p class="lead">Choose the level of support that fits your vision.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3">
+      <article class="card service-card">
+        <p class="eyebrow">01</p>
+        <h3>Full Planning</h3>
+        <p>Concept to completion. We handle venue sourcing, vendor management, design, budget tracking, and the full timeline start to finish.</p>
+        <ul class="list-check">
+          <li>Initial concept &amp; mood board</li>
+          <li>Venue scouting &amp; vendor sourcing</li>
+          <li>Budget &amp; timeline management</li>
+          <li>Design &amp; styling oversight</li>
+          <li>On-the-day management</li>
+        </ul>
+      </article>
+
+      <article class="card service-card">
+        <p class="eyebrow">02</p>
+        <h3>Design &amp; Decor</h3>
+        <p>Bespoke styling that turns spaces into experiences  florals, lighting, tablescapes, and every visual detail that sets the mood.</p>
+        <ul class="list-check">
+          <li>Styling concept &amp; palette</li>
+          <li>Floral &amp; décor sourcing</li>
+          <li>Layout &amp; tablescape design</li>
+          <li>Lighting &amp; ambience</li>
+          <li>Setup &amp; breakdown</li>
+        </ul>
+      </article>
+
+      <article class="card service-card">
+        <p class="eyebrow">03</p>
+        <h3>Coordination</h3>
+        <p>Already planned but need a steady hand on the day? We step in to run the schedule, manage vendors, and keep everything moving smoothly.</p>
+        <ul class="list-check">
+          <li>Vendor confirmation &amp; briefing</li>
+          <li>Run-of-show &amp; timeline</li>
+          <li>On-the-day coordination</li>
+          <li>Guest &amp; VIP support</li>
+          <li>Problem-solving as needed</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container narrow center">
+    <p class="eyebrow">Who we work with</p>
+    <h2>Celebrations of every kind</h2>
+    <ul class="pill-list">
+      <li>Weddings</li>
+      <li>Traditional ceremonies</li>
+      <li>Birthdays</li>
+      <li>Anniversaries</li>
+      <li>Bridal showers</li>
+      <li>Corporate events</li>
+      <li>Product launches</li>
+      <li>Private parties</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="container center">
+    <h2>Not sure which package fits?</h2>
+    <p class="lead">Tell us about your event and we'll recommend the right fit.</p>
+    <a href="{{ url_for('contact') }}" class="btn btn-primary">Inquire Now</a>
+  </div>
+</section>
+{% endblock %}

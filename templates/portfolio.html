@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Event Mania GH{% endblock %}
+{% block meta_description %}Browse selected weddings, birthdays, and corporate events planned and styled by Event Mania GH in Accra, Ghana.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container narrow center">
+    <p class="eyebrow">Portfolio</p>
+    <h1>Selected celebrations</h1>
+    <p class="lead">A glimpse of the moments we've helped bring to life.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="Weddings">Weddings</button>
+      <button class="filter-btn" data-filter="Birthdays">Birthdays</button>
+      <button class="filter-btn" data-filter="Corporate">Corporate</button>
+      <button class="filter-btn" data-filter="Traditional">Traditional</button>
+    </div>
+
+    <div class="grid grid-3 gallery-grid" id="gallery">
+      {% for item in items %}
+      <figure class="gallery-item" data-category="{{ item.category }}">
+        <img src="{{ url_for('static', filename='images/' ~ item.img) }}" alt="{{ item.title }} — Event Mania GH" loading="lazy" />
+        <figcaption>
+          <span class="gallery-title">{{ item.title }}</span>
+          <span class="gallery-cat">{{ item.category }}</span>
+        </figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="container center">
+    <h2>Want your event to feel like this?</h2>
+    <a href="{{ url_for('contact') }}" class="btn btn-primary">Let's Talk</a>
+  </div>
+</section>
+{% endblock %}

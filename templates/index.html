@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}Event Mania GH{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-media">
+    <img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="Elegant event styling by Event Mania GH" />
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content container">
+    <p class="eyebrow">Accra, Ghana &nbsp;·&nbsp; Events with soul</p>
+    <h1>Luxury event planning,<br/>design &amp; coordination</h1>
+    <p class="hero-sub">We turn celebrations into experiences, from intimate gatherings to grand weddings, planned with care, executed to perfection.</p>
+    <div class="hero-cta">
+      <a href="{{ url_for('contact') }}" class="btn btn-primary">Plan Your Event</a>
+      <a href="{{ url_for('portfolio') }}" class="btn btn-ghost">View Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<section class="section intro">
+  <div class="container narrow center">
+    <p class="eyebrow">Welcome to Event Mania GH</p>
+    <h2 class="display">Moments made unforgettable.</h2>
+    <p class="lead">We're a full-service event planning, design and coordination company based in Accra. We bring complete visions to life — every detail considered, every guest delighted.</p>
+  </div>
+</section>
+
+<section class="section services-preview">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">What we do</p>
+      <h2>Full-service, start to finish</h2>
+    </div>
+    <div class="grid grid-3">
+      <article class="card">
+        <h3>Full Planning</h3>
+        <p>Concept to completion — venue, vendors, styling, and timeline, all handled.</p>
+      </article>
+      <article class="card">
+        <h3>Design &amp; Decor</h3>
+        <p>Bespoke styling that tells your story, from florals to lighting and tablescapes.</p>
+      </article>
+      <article class="card">
+        <h3>Day-of Coordination</h3>
+        <p>You enjoy the day; we handle the details, logistics, and every moving part.</p>
+      </article>
+    </div>
+    <div class="center mt-lg">
+      <a href="{{ url_for('services') }}" class="btn btn-outline">Explore Services</a>
+    </div>
+  </div>
+</section>
+
+<section class="section featured">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Recent work</p>
+      <h2>Selected celebrations</h2>
+    </div>
+    <div class="grid grid-3 gallery-grid">
+      <a class="gallery-item" href="{{ url_for('portfolio') }}">
+        <img src="{{ url_for('static', filename='images/wedding-1.jpg') }}" alt="Garden wedding by Event Mania GH" loading="lazy" />
+        <span>Garden Wedding</span>
+      </a>
+      <a class="gallery-item" href="{{ url_for('portfolio') }}">
+        <img src="{{ url_for('static', filename='images/birthday-1.jpg') }}" alt="Golden birthday celebration" loading="lazy" />
+        <span>Golden Birthday</span>
+      </a>
+      <a class="gallery-item" href="{{ url_for('portfolio') }}">
+        <img src="{{ url_for('static', filename='images/corporate-1.jpg') }}" alt="Corporate gala event" loading="lazy" />
+        <span>Corporate Gala</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section testimonial">
+  <div class="container narrow center">
+    <p class="quote">“Event Mania GH took our vision and made it bigger, brighter, and completely stress-free. Every detail was perfect.”</p>
+    <p class="muted">— Ama &amp; Kwesi, Accra</p>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="container center">
+    <h2>Let's plan something beautiful.</h2>
+    <p class="lead">Tell us about your event and  we'll take it from there.</p>
+    <a href="{{ url_for('contact') }}" class="btn btn-primary">Start Your Inquiry</a>
+  </div>
+</section>
+{% endblock %}
