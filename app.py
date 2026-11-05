@@ -6,10 +6,11 @@ app.secret_key = os.environ.get("SECRET_KEY", "change-me-in-production")
 
 # Contact info used across templates
 CONTACT = {
-    "phone": "+233 54 418 1268",
-    "whatsapp": "233544181268",  # digits only for wa.me link
-    "email": "hello@eventmaniagh.com",
+    "phone": "+233 557 372 348 or +233 573 756100",
+    "whatsapp": "233557372348",  # digits only for wa.me link
+    "email": "weddingsbyeventmania@gmail.com",
     "instagram": "https://instagram.com/eventmaniagh",
+    "tiktok": "https://tiktok.com/@event_mania_gh",
     "location": "Accra, Ghana",
 }
 
@@ -37,14 +38,17 @@ def services():
 @app.route("/portfolio")
 def portfolio():
     items = [
-        {"title": "Garden Wedding", "category": "Weddings", "img": "wedding-1.jpg"},
-        {"title": "Golden Birthday", "category": "Birthdays", "img": "birthday-1.jpg"},
-        {"title": "Corporate Gala", "category": "Corporate", "img": "corporate-1.jpg"},
-        {"title": "Traditional Ceremony", "category": "Traditional", "img": "traditional-1.jpg"},
-        {"title": "Beach Wedding", "category": "Weddings", "img": "wedding-2.jpg"},
-        {"title": "Bridal Shower", "category": "Weddings", "img": "wedding-3.jpg"},
-        {"title": "Milestone Birthday", "category": "Birthdays", "img": "birthday-2.jpg"},
-        {"title": "Product Launch", "category": "Corporate", "img": "corporate-2.jpg"},
+        {"title": "Garden Wedding",        "category": "Weddings",       "img": "wedding-1.jpg"},
+        {"title": "Golden Birthday",       "category": "Birthdays",      "img": "birthday-1.jpg"},
+        {"title": "Corporate Gala",        "category": "Corporate",      "img": "corporate-1.jpg"},
+        {"title": "Traditional Ceremony",  "category": "Traditional",    "img": "traditional-1.jpg"},
+        {"title": "Beach Wedding",         "category": "Weddings",       "img": "wedding-2.jpg"},
+        {"title": "Bridal Shower",         "category": "Bridal Shower",  "img": "bridal-shower-1.jpg"},
+        {"title": "Milestone Birthday",    "category": "Birthdays",      "img": "birthday-2.jpg"},
+        {"title": "Product Launch",        "category": "Corporate",      "img": "corporate-2.jpg"},
+        {"title": "Baby Christening",      "category": "Christening",    "img": "christening-1.jpg"},
+        {"title": "Muslim Wedding",        "category": "Muslim Wedding", "img": "muslim-wedding-1.jpg"},
+        {"title": "Celebration of Life",   "category": "Funeral",        "img": "funeral-1.jpg"},
     ]
     return render_template("portfolio.html", items=items)
 

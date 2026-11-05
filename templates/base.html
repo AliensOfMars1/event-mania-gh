@@ -3,35 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0b3d2e" />
-  <title>{% block title %}Event Mania GH — Luxury Event Planning in Accra{% endblock %}</title>
+  <meta name="theme-color" content="#1a1410" />
+  <title>{% block title %}Event Mania GH Luxury Event Planning in Accra{% endblock %}</title>
   <meta name="description" content="{% block meta_description %}Full-service event planning, design and coordination in Accra, Ghana. Weddings, birthdays, corporate events — flawless execution, unforgettable moments.{% endblock %}" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Event Mania GH — Event Planning & Design" />
   <meta property="og:description" content="Luxury event planning, design & coordination in Accra, Ghana." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="{{ url_for('static', filename='images/og-image.png') }}" />
+  <meta property="og:image" content="{{ url_for('static', filename='images/og-image.jpg') }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="{{ url_for('static', filename='images/og-image.jpg') }}" />
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" />
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" />
 </head>
 <body>
+
+  <!-- ═══════════ TOP NAVIGATION ═══════════ -->
+  <!-- ═══════════ TOP NAVIGATION ═══════════ -->
   <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="{{ url_for('index') }}" class="logo">Event&nbsp;Mania<span>&nbsp;GH</span></a>
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <div class="nav-wrap">
+      
+      <!-- Added the Logo Image Here -->
+      <a href="{{ url_for('index') }}" class="logo" style="display: flex; align-items: center; gap: 12px;">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Event Mania GH Logo" style="height: 40px; width: auto; object-fit: contain;">
+        <span>Event&nbsp;Mania<span>&nbsp;GH</span></span>
+      </a>
+
+      <!-- Modern Hamburger Icon (Mobile Only) -->
+      <button class="nav-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <nav class="nav">
-        <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('about') }}">About</a>
-        <a href="{{ url_for('services') }}">Services</a>
-        <a href="{{ url_for('portfolio') }}">Portfolio</a>
+
+      <!-- Desktop Links -->
+      <nav class="nav" id="mainNav">
+        <a href="{{ url_for('index') }}" class="{{ 'active' if request.endpoint == 'index' }}">Home</a>
+        <a href="{{ url_for('portfolio') }}" class="{{ 'active' if request.endpoint == 'portfolio' }}">Portfolio</a>
+        <a href="{{ url_for('services') }}" class="{{ 'active' if request.endpoint == 'services' }}">Services</a>
+        <a href="{{ url_for('about') }}" class="{{ 'active' if request.endpoint == 'about' }}">About</a>
         <a href="{{ url_for('contact') }}" class="btn-nav">Inquire</a>
+
+        <!-- Mobile Menu Social Icons (Only visible on mobile) -->
+        <div class="mobile-nav-socials">
+          <a href="https://wa.me/{{ contact.whatsapp }}" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.4.1 12c0 2.1.6 4.2 1.7 6L0 24l6.2-1.6a11.9 11.9 0 0 0 5.8 1.5h.1c6.6 0 11.9-5.4 11.9-12 0-3.2-1.2-6.2-3.5-8.4zM12 21.7h-.1a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.9 9.9 0 0 1-1.5-5.2c0-5.4 4.4-9.9 9.9-9.9 2.6 0 5.1 1 7 2.9 1.9 1.9 2.9 4.4 2.9 7 0 5.4-4.4 9.8-9.9 9.8zm5.5-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.2.2 2 3.1 5 4.3 2.5 1 3 .8 3.5.8.5-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/>
+            </svg>
+          </a>
+          <a href="{{ contact.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="{{ contact.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+            </svg>
+          </a>
+        </div>
       </nav>
     </div>
   </header>
@@ -51,31 +85,61 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <h3 class="footer-logo">Event Mania GH</h3>
-        <p class="muted">Luxury event planning, design & coordination in {{ contact.location }} & beyond.</p>
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Brand Column -->
+        <div>
+          <h3 class="footer-logo">Event&nbsp;Mania<span>&nbsp;GH</span></h3>
+          <p>Luxury event planning, design &amp; coordination in {{ contact.location }} &amp; beyond. We turn celebrations into experiences.</p>
+        </div>
+
+        <!-- Explore Links -->
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('services') }}">Services</a></li>
+            <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
+            <li><a href="{{ url_for('contact') }}">Inquire</a></li>
+          </ul>
+        </div>
+
+        <!-- Social & Contact -->
+        <div>
+          <h4>Connect</h4>
+          <ul class="footer-contact-list">
+            <li><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
+            <li><a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></li>
+          </ul>
+          
+          <!-- Social Icons -->
+          <div class="footer-socials">
+            <a href="https://wa.me/{{ contact.whatsapp }}" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.4.1 12c0 2.1.6 4.2 1.7 6L0 24l6.2-1.6a11.9 11.9 0 0 0 5.8 1.5h.1c6.6 0 11.9-5.4 11.9-12 0-3.2-1.2-6.2-3.5-8.4zM12 21.7h-.1a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.9 9.9 0 0 1-1.5-5.2c0-5.4 4.4-9.9 9.9-9.9 2.6 0 5.1 1 7 2.9 1.9 1.9 2.9 4.4 2.9 7 0 5.4-4.4 9.8-9.9 9.8zm5.5-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.2.2 2 3.1 5 4.3 2.5 1 3 .8 3.5.8.5-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/>
+              </svg>
+            </a>
+            <a href="{{ contact.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="{{ contact.tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
       </div>
-      <div>
-        <h4>Explore</h4>
-        <ul>
-          <li><a href="{{ url_for('about') }}">About</a></li>
-          <li><a href="{{ url_for('services') }}">Services</a></li>
-          <li><a href="{{ url_for('portfolio') }}">Portfolio</a></li>
-          <li><a href="{{ url_for('contact') }}">Contact</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Event Mania GH. All rights reserved.</p>
+        <p>{{ contact.location }}</p>
       </div>
-      <div>
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
-          <li><a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></li>
-          <li><a href="{{ contact.instagram }}" target="_blank" rel="noopener">Instagram</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p class="muted small">© <span id="year"></span> Event Mania GH. All rights reserved. Powered by CodesOfAnAlien Development</p>
     </div>
   </footer>
 

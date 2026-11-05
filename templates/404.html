@@ -2,11 +2,11 @@
 {% block title %}Page Not Found — Event Mania GH{% endblock %}
 {% block content %}
 <section class="page-hero">
-  <div class="container narrow center">
+  <div class="container">
     <p class="eyebrow">404</p>
     <h1>We couldn't find that page.</h1>
     <p class="lead">It may have moved. Let's get you back on track.</p>
-    <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Home</a>
+    <a href="{{ url_for('index') }}" class="btn btn-primary mt-lg">Back to Home <span class="arrow">→</span></a>
   </div>
 </section>
 {% endblock %}
