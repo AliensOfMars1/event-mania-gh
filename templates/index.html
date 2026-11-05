@@ -1,41 +1,72 @@
 {% extends "base.html" %}
-{% block title %}Event Mania GH{% endblock %}
+{% block title %}Event Mania GH Luxury Event Planning & Design in Accra{% endblock %}
+{% block meta_description %}Full-service event planning, design and coordination in Accra, Ghana. Weddings, birthdays, christenings, corporate events — flawless execution, unforgettable moments.{% endblock %}
 
 {% block content %}
+
+<!-- ═══════════ HERO (Video + Image Fallback) ═══════════ -->
 <section class="hero">
-  <div class="hero-media">
-    <img src="{{ url_for('static', filename='images/hero.jpg') }}" alt="Elegant event styling by Event Mania GH" />
-    <div class="hero-overlay"></div>
-  </div>
-  <div class="hero-content container">
-    <p class="eyebrow">Accra, Ghana &nbsp;·&nbsp; Events with soul</p>
-    <h1>Luxury event planning,<br/>design &amp; coordination</h1>
-    <p class="hero-sub">We turn celebrations into experiences, from intimate gatherings to grand weddings, planned with care, executed to perfection.</p>
-    <div class="hero-cta">
-      <a href="{{ url_for('contact') }}" class="btn btn-primary">Plan Your Event</a>
-      <a href="{{ url_for('portfolio') }}" class="btn btn-ghost">View Portfolio</a>
+  <div class="hero-gallery">
+    
+    <!-- Column 1 -->
+    <div class="hero-col">
+      <video class="hero-video" autoplay muted loop playsinline onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <source src="{{ url_for('static', filename='video/hero1.mp4') }}" type="video/mp4" />
+      </video>
+      <img class="hero-video hero-fallback" src="{{ url_for('static', filename='images/portfolio1.jpg') }}" alt="Event Mania GH" style="display: none;">
     </div>
+    
+    <!-- Column 2 -->
+    <div class="hero-col">
+      <video class="hero-video" autoplay muted loop playsinline onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <source src="{{ url_for('static', filename='video/hero2.mp4') }}" type="video/mp4" />
+      </video>
+      <img class="hero-video hero-fallback" src="{{ url_for('static', filename='images/portfolio2.jpg') }}" alt="Event Mania GH" style="display: none;">
+    </div>
+    
+    <!-- Column 3 -->
+    <div class="hero-col">
+      <video class="hero-video" autoplay muted loop playsinline onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <source src="{{ url_for('static', filename='video/hero3.mp4') }}" type="video/mp4" />
+      </video>
+      <img class="hero-video hero-fallback" src="{{ url_for('static', filename='images/portfolio3.jpg') }}" alt="Event Mania GH" style="display: none;">
+    </div>
+
   </div>
+  
+  <div class="hero-overlay"></div>
+  
+<div class="hero-content">
+  <p class="eyebrow">✦ Curated Celebrations Since Day One</p>
+  <h1>Luxury Event Planning,<br>Design &amp; Coordination</h1>
+  <p class="hero-sub">We turn celebrations into experiences, from intimate gatherings to grand weddings, planned with care, executed to perfection.</p>
+  <div class="hero-cta">
+    <a href="{{ url_for('contact') }}" class="btn btn-primary">Plan Your Event <span class="arrow">→</span></a>
+    <a href="{{ url_for('portfolio') }}" class="btn btn-outline">View Portfolio</a>
+  </div>
+</div>
 </section>
 
+<!-- ═══════════ INTRO ═══════════ -->
 <section class="section intro">
   <div class="container narrow center">
     <p class="eyebrow">Welcome to Event Mania GH</p>
     <h2 class="display">Moments made unforgettable.</h2>
-    <p class="lead">We're a full-service event planning, design and coordination company based in Accra. We bring complete visions to life — every detail considered, every guest delighted.</p>
+    <p class="lead">We're a full service event planning, design and coordination company based in Accra. We bring complete visions to life ... every detail considered, every guest delighted.</p>
   </div>
 </section>
 
-<section class="section services-preview">
+<!-- ═══════════ SERVICES PREVIEW ═══════════ -->
+<section class="section alt">
   <div class="container">
     <div class="section-head center">
       <p class="eyebrow">What we do</p>
-      <h2>Full-service, start to finish</h2>
+      <h2 class="section-title">Full-service, start to finish</h2>
     </div>
     <div class="grid grid-3">
       <article class="card">
         <h3>Full Planning</h3>
-        <p>Concept to completion — venue, vendors, styling, and timeline, all handled.</p>
+        <p>Concept to completion. venue, vendors, styling, and timeline, all handled.</p>
       </article>
       <article class="card">
         <h3>Design &amp; Decor</h3>
@@ -47,18 +78,19 @@
       </article>
     </div>
     <div class="center mt-lg">
-      <a href="{{ url_for('services') }}" class="btn btn-outline">Explore Services</a>
+      <a href="{{ url_for('services') }}" class="btn btn-dark">Explore Services <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
 
-<section class="section featured">
+<!-- ═══════════ FEATURED WORK ═══════════ -->
+<section class="section">
   <div class="container">
     <div class="section-head center">
       <p class="eyebrow">Recent work</p>
-      <h2>Selected celebrations</h2>
+      <h2 class="section-title">Selected celebrations</h2>
     </div>
-    <div class="grid grid-3 gallery-grid">
+    <div class="gallery-grid">
       <a class="gallery-item" href="{{ url_for('portfolio') }}">
         <img src="{{ url_for('static', filename='images/wedding-1.jpg') }}" alt="Garden wedding by Event Mania GH" loading="lazy" />
         <span>Garden Wedding</span>
@@ -72,21 +104,121 @@
         <span>Corporate Gala</span>
       </a>
     </div>
+    <div class="center mt-lg">
+      <a href="{{ url_for('portfolio') }}" class="btn btn-dark">View Full Portfolio <span class="arrow">→</span></a>
+    </div>
   </div>
 </section>
 
-<section class="section testimonial">
-  <div class="container narrow center">
-    <p class="quote">“Event Mania GH took our vision and made it bigger, brighter, and completely stress-free. Every detail was perfect.”</p>
+<!-- ═══════════ WATCH US IN ACTION ═══════════ -->
+<section class="section alt" id="video-section">
+  <div class="container">
+    <div class="section-head center">
+      <p class="eyebrow">Behind the scenes</p>
+      <h2 class="section-title">Watch us in action</h2>
+      <p class="lead">Real moments from recent celebrations, straight from our social channels.</p>
+    </div>
+
+    <div class="social-embed-grid">
+
+      <!-- TikTok #1 — Clean Player -->
+      <div class="social-embed">
+        <iframe 
+          class="social-video-frame"
+          src="https://www.tiktok.com/player/v1/7667255951673642260?autoplay=0&loop=1" 
+          style="width: 100%; height: 100%; aspect-ratio: 9/16; border: none; border-radius: var(--radius); box-shadow: 0 8px 28px rgba(0,0,0,0.1);"
+          allow="fullscreen"
+          title="Event Mania GH TikTok">
+        </iframe>
+        <a class="social-fallback" href="https://www.tiktok.com/@event_mania_gh/video/7667255951673642260" target="_blank" rel="noopener">
+          Watch on TikTok <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <!-- TikTok #2 (NEW) — Clean Player -->
+      <div class="social-embed">
+        <iframe 
+          class="social-video-frame"
+          src="https://www.tiktok.com/player/v1/7696614686883663125?autoplay=0&loop=1" 
+          style="width: 100%; height: 100%; aspect-ratio: 9/16; border: none; border-radius: var(--radius); box-shadow: 0 8px 28px rgba(0,0,0,0.1);"
+          allow="fullscreen"
+          title="Event Mania GH TikTok">
+        </iframe>
+        <a class="social-fallback" href="https://www.tiktok.com/@event_mania_gh/video/7696614686883663125" target="_blank" rel="noopener">
+          Watch on TikTok <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <!-- TikTok #3 — Clean Player -->
+      <div class="social-embed">
+        <iframe 
+          class="social-video-frame"
+          src="https://www.tiktok.com/player/v1/7633823646418586900?autoplay=0&loop=1" 
+          style="width: 100%; height: 100%; aspect-ratio: 9/16; border: none; border-radius: var(--radius); box-shadow: 0 8px 28px rgba(0,0,0,0.1);"
+          allow="fullscreen"
+          title="Event Mania GH TikTok">
+        </iframe>
+        <a class="social-fallback" href="https://www.tiktok.com/@event_mania_gh/video/7633823646418586900" target="_blank" rel="noopener">
+          Watch on TikTok <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="center mt-lg">
+      <a href="{{ contact.instagram }}" target="_blank" rel="noopener" class="btn btn-dark">
+        Follow us on Instagram <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Custom Script to Pause TikTok Video When Scrolling Away -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const videoSection = document.getElementById("video-section");
+    
+    // Create an observer that triggers when the section leaves the screen
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // If the section is NOT visible on screen (user scrolled away)
+        if (!entry.isIntersecting) {
+          
+          // Pause ALL TikTok videos by re-setting their src attribute
+          const tikTokIframes = entry.target.querySelectorAll('iframe.social-video-frame');
+          tikTokIframes.forEach(iframe => {
+            const currentSrc = iframe.src;
+            iframe.src = ''; // Empty it first to force a hard stop
+            iframe.src = currentSrc; // Put it back (this pauses the video & mutes it)
+          });
+          
+        }
+      });
+    }, { threshold: 0.1 }); // Trigger when less than 10% of the section is visible
+
+    if (videoSection) {
+      observer.observe(videoSection);
+    }
+  });
+</script>
+
+<!-- ═══════════ TESTIMONIAL ═══════════ -->
+<section class="testimonial">
+  <div class="container">
+    <blockquote class="quote">Event Mania GH took our vision and made it bigger, brighter, and completely stress-free. Every detail was perfect.</blockquote>
     <p class="muted">— Ama &amp; Kwesi, Accra</p>
   </div>
 </section>
 
-<section class="section cta-band">
-  <div class="container center">
+
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-band">
+  <div class="container">
     <h2>Let's plan something beautiful.</h2>
-    <p class="lead">Tell us about your event and  we'll take it from there.</p>
-    <a href="{{ url_for('contact') }}" class="btn btn-primary">Start Your Inquiry</a>
+    <p class="lead">Tell us about your event — we'll take it from there.</p>
+    <a href="{{ url_for('contact') }}" class="btn btn-primary">Start Your Inquiry <span class="arrow">→</span></a>
   </div>
 </section>
+
 {% endblock %}

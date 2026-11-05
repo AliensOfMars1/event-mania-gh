@@ -1,11 +1,20 @@
 {% extends "base.html" %}
-{% block title %}Contact & Inquiry — Event Mania GH{% endblock %}
+{% block title %}Inquire Event Mania GH{% endblock %}
 {% block meta_description %}Inquire about event planning, design, and coordination services in Accra, Ghana.{% endblock %}
 
 {% block content %}
+
+<!-- ═══════════ PAGE HERO (Gallery Banner) ═══════════ -->
 <section class="page-hero">
-  <div class="container narrow center">
-    <p class="eyebrow">Inquiries</p>
+  <div class="page-hero-gallery">
+    <!-- Replace these with 3 portrait images for the Contact page -->
+    <img src="{{ url_for('static', filename='images/contact1.jpg') }}" alt="Event details">
+    <img src="{{ url_for('static', filename='images/contact2.jpg') }}" alt="Beautiful table setting">
+    <img src="{{ url_for('static', filename='images/contact3.jpg') }}" alt="Happy guests">
+  </div>
+  <div class="page-hero-overlay"></div>
+  <div class="container">
+    <p class="eyebrow">Begin Your Journey</p>
     <h1>Let's plan something beautiful.</h1>
     <p class="lead">Tell us about your event and we'll be in touch within 24 hours.</p>
   </div>
@@ -14,7 +23,6 @@
 <section class="section">
   <div class="container contact-grid">
 
-    <!-- Success / error message shown after submit -->
     <div id="form-status" class="form-status" role="status" aria-live="polite" hidden></div>
 
     <form id="inquiry-form"
@@ -23,11 +31,8 @@
           class="contact-form"
           novalidate>
 
-      <!-- Honeypot: bots fill this, humans don't see it -->
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"
              style="position:absolute;left:-9999px;opacity:0;" aria-hidden="true" />
-
-      <!-- Makes reply-to work in Formspree -->
       <input type="hidden" name="_subject" value="New Event Mania GH Inquiry" />
 
       <div class="form-row">
@@ -52,10 +57,13 @@
             <option value="">Select…</option>
             <option>Wedding</option>
             <option>Traditional ceremony</option>
+            <option>Muslim Wedding</option>
             <option>Birthday</option>
             <option>Anniversary</option>
             <option>Bridal shower</option>
+            <option>Baby Christening</option>
             <option>Corporate event</option>
+            <option>Funeral / Memorial</option>
             <option>Other</option>
           </select>
         </div>
@@ -90,25 +98,23 @@
       </div>
 
       <button type="submit" class="btn btn-primary btn-block" id="submit-btn">
-        Send Inquiry
+        Send Inquiry <span class="arrow">→</span>
       </button>
     </form>
 
     <aside class="contact-side">
       <h3>Prefer to chat?</h3>
       <p>Message us on WhatsApp and we'll reply quickly.</p>
-      <a href="https://wa.me/{{ contact.whatsapp }}" target="_blank" rel="noopener" class="btn btn-outline btn-block">
-        Chat on WhatsApp
-      </a>
+      <a href="https://wa.me/{{ contact.whatsapp }}" target="_blank" rel="noopener" class="btn btn-primary btn-block">Chat on WhatsApp</a>
 
       <hr />
 
       <h4>Reach us directly</h4>
       <ul class="contact-list">
-        <li><strong>Email</strong><br/><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
-        <li><strong>Phone</strong><br/><a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></li>
-        <li><strong>Location</strong><br/>{{ contact.location }}</li>
-        <li><strong>Instagram</strong><br/><a href="{{ contact.instagram }}" target="_blank" rel="noopener">@eventmaniagh</a></li>
+        <li><strong>Email</strong><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
+        <li><strong>Phone</strong><a href="tel:{{ contact.phone }}">{{ contact.phone }}</a></li>
+        <li><strong>Location</strong>{{ contact.location }}</li>
+        <li><strong>Instagram</strong><a href="{{ contact.instagram }}" target="_blank" rel="noopener">@eventmaniagh</a></li>
       </ul>
     </aside>
 

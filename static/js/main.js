@@ -1,18 +1,26 @@
-// ============ Mobile nav toggle ============
-const toggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('.nav');
+// ============ Modern Mobile Nav Toggle ============
+const toggle = document.getElementById('mobile-toggle');
+const nav = document.getElementById('mainNav');
 
 if (toggle && nav) {
   toggle.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    
+    // Toggle body class for solid header background
+    document.body.classList.toggle('menu-open', isOpen);
+    
+    // Prevent background scrolling when menu is open
+    document.body.style.overflow = isOpen ? 'hidden' : '';
   });
 
-  // Close on link click
+  // Close menu when a link is clicked
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+      document.body.style.overflow = '';
     });
   });
 }
@@ -20,51 +28,6 @@ if (toggle && nav) {
 // ============ Year in footer ============
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-// ============ Scroll reveal (safe, no flicker) ============
-(function () {
-  // Respect reduced motion
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced || !('IntersectionObserver' in window)) {
-    // Do nothing — content stays visible by default
-    return;
-  }
-
-  const reveals = document.querySelectorAll('.section, .card, .gallery-item, .page-hero');
-  if (!reveals.length) return;
-
-  // Only animate elements that are BELOW the fold on first paint.
-  // Anything already visible stays visible — no opacity flip.
-  const vh = window.innerHeight || document.documentElement.clientHeight;
-
-  reveals.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    const isBelowFold = rect.top > vh * 0.9; // adjust 0.9 if you want more/less
-    if (isBelowFold) {
-      el.classList.add('reveal');
-    } else {
-      el.classList.add('in'); // already visible → no animation
-    }
-  });
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-
-  reveals.forEach(el => {
-    if (el.classList.contains('reveal')) io.observe(el);
-  });
-
-  // Safety net: if something goes wrong, force everything visible after 1.5s
-  setTimeout(() => {
-    document.querySelectorAll('.reveal:not(.in)').forEach(el => el.classList.add('in'));
-  }, 1500);
-})();
 
 // ============ Portfolio filter ============
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -75,11 +38,8 @@ filterBtns.forEach(btn => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const filter = btn.dataset.filter;
-
     galleryItems.forEach(item => {
-      const cat = item.dataset.category;
-      const show = filter === 'all' || cat === filter;
-      item.style.display = show ? '' : 'none';
+      item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
     });
   });
 });
@@ -93,22 +53,18 @@ if (inquiryForm) {
   inquiryForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Reset status
     formStatus.hidden = true;
     formStatus.className = 'form-status';
     formStatus.textContent = '';
 
-    // Disable button
-    const originalBtnText = submitBtn.textContent;
+    const originalBtnText = submitBtn.innerHTML;
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
-
-    const formData = new FormData(inquiryForm);
 
     try {
       const response = await fetch(inquiryForm.action, {
         method: 'POST',
-        body: formData,
+        body: new FormData(inquiryForm),
         headers: { 'Accept': 'application/json' },
       });
 
@@ -133,7 +89,7 @@ if (inquiryForm) {
       formStatus.hidden = false;
     } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = originalBtnText;
+      submitBtn.innerHTML = originalBtnText;
     }
   });
 }
