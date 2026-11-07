@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Event Mania GH Luxury Event Planning & Design in Accra{% endblock %}
+{% block title %}Event Mania GH Luxury Event Planning & Coordination in Accra{% endblock %}
 {% block meta_description %}Full-service event planning, design and coordination in Accra, Ghana. Weddings, birthdays, christenings, corporate events — flawless execution, unforgettable moments.{% endblock %}
 
 {% block content %}
@@ -38,7 +38,7 @@
   
 <div class="hero-content">
   <p class="eyebrow">✦Bringing Your Dream Event To Life</p>
-  <h1>Luxury Event Planning,<br>Design &amp; Coordination</h1>
+  <h1>Luxury Event Planning<br> &amp; Coordination</h1>
   <p class="hero-sub">We turn celebrations into experiences, from intimate gatherings to grand weddings, planned with care and executed to perfection.</p>
   <div class="hero-cta">
     <a href="{{ url_for('contact') }}" class="btn btn-primary">Plan Your Event <span class="arrow">→</span></a>
@@ -55,7 +55,6 @@
     <p class="lead">We're a full service event planning and coordination company based in Accra. We bring complete visions to life ... every detail considered, every guest delighted.</p>
   </div>
 </section>
-
 <!-- ═══════════ SERVICES PREVIEW ═══════════ -->
 <section class="section alt">
   <div class="container">
@@ -64,18 +63,25 @@
       <h2 class="section-title">Full-service, start to finish</h2>
     </div>
     <div class="grid grid-3">
+      
+      <!-- Card 1: Event Consultation -->
+      <article class="card">
+        <h3>Event Consultation</h3>
+        <p>Expert advice on vision, budget, and vendors to help you get started on the right foot.</p>
+      </article>
+      
+      <!-- Card 2: Full Planning -->
       <article class="card">
         <h3>Full Planning</h3>
-        <p>Concept to completion. venue, vendors, styling, and timeline, all handled.</p>
+        <p>Concept to completion. Venue, vendors, styling, and timeline, all handled.</p>
       </article>
-      <article class="card">
-        <h3>Design &amp; Decor</h3>
-        <p>Bespoke styling that tells your story, from florals to lighting and tablescapes.</p>
-      </article>
+      
+      <!-- Card 3: Coordination -->
       <article class="card">
         <h3>Day-of Coordination</h3>
         <p>You enjoy the day; we handle the details, logistics, and every moving part.</p>
       </article>
+      
     </div>
     <div class="center mt-lg">
       <a href="{{ url_for('services') }}" class="btn btn-dark">Explore Services <span class="arrow">→</span></a>
@@ -92,17 +98,21 @@
     </div>
     <div class="gallery-grid">
       <a class="gallery-item" href="{{ url_for('portfolio') }}">
-        <img src="{{ url_for('static', filename='images/wedding-1.jpg') }}" alt="Garden wedding by Event Mania GH" loading="lazy" />
-        <span>Garden Wedding</span>
+        <img src="{{ url_for('static', filename='images/whitewedding2.jpg') }}" alt="White Wedding by Event Mania GH" loading="lazy" />
+        <span>White Wedding</span>
       </a>
       <a class="gallery-item" href="{{ url_for('portfolio') }}">
-        <img src="{{ url_for('static', filename='images/birthday-1.jpg') }}" alt="Golden birthday celebration" loading="lazy" />
-        <span>Golden Birthday</span>
+        <img src="{{ url_for('static', filename='images/traditional2.jpg') }}" alt="Traditional Wedding event" loading="lazy" />
+        <span>Traditional Wedding</span>
       </a>
       <a class="gallery-item" href="{{ url_for('portfolio') }}">
-        <img src="{{ url_for('static', filename='images/corporate-1.jpg') }}" alt="Corporate gala event" loading="lazy" />
+        <img src="{{ url_for('static', filename='images/traditional3.jpg') }}" alt="Traditional Wedding event" loading="lazy" />
         <span>Corporate Gala</span>
       </a>
+      <a class="gallery-item" href="{{ url_for('portfolio') }}">
+        <img src="{{ url_for('static', filename='images/whitewedding3.jpg') }}" alt="White Wedding event" loading="lazy" />
+        <span>White Wedding</span>
+      </a>      
     </div>
     <div class="center mt-lg">
       <a href="{{ url_for('portfolio') }}" class="btn btn-dark">View Full Portfolio <span class="arrow">→</span></a>
