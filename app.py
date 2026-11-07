@@ -38,17 +38,29 @@ def services():
 @app.route("/portfolio")
 def portfolio():
     items = [
+        {"title": "Traditional Ceremony",  "category": "Traditional",    "img": "traditional-1.jpg"},
+        {"title": "White Wedding",         "category": "Weddings",       "img": "whitewedding2.jpg"},        
+        {"title": "Traditional Ceremony",  "category": "Traditional",    "img": "traditional2.jpg"},
+        {"title": "Prewedding photoshoot",  "category": "Traditional",    "img": "traditional3.jpg"},
+        {"title": "Muslim Wedding",        "category": "Muslim Wedding", "img": "muslimwedding2.jpg"},        
         {"title": "Garden Wedding",        "category": "Weddings",       "img": "wedding-1.jpg"},
         {"title": "Golden Birthday",       "category": "Birthdays",      "img": "birthday-1.jpg"},
-        {"title": "Corporate Gala",        "category": "Corporate",      "img": "corporate-1.jpg"},
-        {"title": "Traditional Ceremony",  "category": "Traditional",    "img": "traditional-1.jpg"},
+        {"title": "Corporate Gala",        "category": "Corporate",      "img": "corporate-1.jpg"},         
+        {"title": "Traditional Ceremony",  "category": "Traditional",    "img": "traditional4.jpg"},          
         {"title": "Beach Wedding",         "category": "Weddings",       "img": "wedding-2.jpg"},
-        {"title": "Bridal Shower",         "category": "Bridal Shower",  "img": "bridal-shower-1.jpg"},
-        {"title": "Milestone Birthday",    "category": "Birthdays",      "img": "birthday-2.jpg"},
+        {"title": "White Wedding",         "category": "Weddings",       "img": "whitewedding1.jpg"},
+        {"title": "White Wedding",         "category": "Weddings",       "img": "whitewedding3.jpg"},         
+        {"title": "Bridal Shower",         "category": "Bridal Shower",  "img": "bridalshower1.jpg"},
+        {"title": "Bridal Shower",         "category": "Bridal Shower",  "img": "bridalshower2.jpg"},        
+        {"title": "Milestone Birthday",    "category": "Birthdays",      "img": "birthday1.jpg"},
+        {"title": "Milestone Birthday",    "category": "Birthdays",      "img": "birthday2.jpg"},
         {"title": "Product Launch",        "category": "Corporate",      "img": "corporate-2.jpg"},
-        {"title": "Baby Christening",      "category": "Christening",    "img": "christening-1.jpg"},
-        {"title": "Muslim Wedding",        "category": "Muslim Wedding", "img": "muslim-wedding-1.jpg"},
-        {"title": "Celebration of Life",   "category": "Funeral",        "img": "funeral-1.jpg"},
+        {"title": "Promotional Event",     "category": "Corporate",      "img": "corporate3.jpg"}, 
+        {"title": "Promotional Event",     "category": "Corporate",      "img": "corporate4.jpg"},               
+        {"title": "Baby Christening",      "category": "Christening",    "img": "christening1.jpg"},
+        {"title": "Muslim Wedding",        "category": "Muslim Wedding", "img": "muslimwedding1.jpg"},
+        {"title": "Celebration of Life",   "category": "Funeral",        "img": "funeral1.jpg"},
+        {"title": "Celebration of Life",   "category": "Funeral",        "img": "funeral2.jpg"},
     ]
     return render_template("portfolio.html", items=items)
 

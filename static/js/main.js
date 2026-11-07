@@ -93,3 +93,65 @@ if (inquiryForm) {
     }
   });
 }
+
+
+// ============ Testimonial Slider ============
+document.addEventListener("DOMContentLoaded", function() {
+  const slides = document.querySelectorAll('.testimonial-slide');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  
+  if (slides.length > 0) {
+    let currentSlide = 0;
+    let slideInterval;
+
+    function showSlide(index) {
+      // Remove active class from all slides
+      slides.forEach(slide => slide.classList.remove('active'));
+      
+      // Handle wrapping around
+      if (index >= slides.length) currentSlide = 0;
+      else if (index < 0) currentSlide = slides.length - 1;
+      else currentSlide = index;
+
+      // Add active class to current slide
+      slides[currentSlide].classList.add('active');
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    // Button Click Events
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetTimer();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetTimer();
+      });
+    }
+
+    // Auto-play functionality
+    function startTimer() {
+      slideInterval = setInterval(nextSlide, 6000); // Changes every 6 seconds
+    }
+
+    function resetTimer() {
+      clearInterval(slideInterval);
+      startTimer();
+    }
+
+    // Initialize
+    startTimer();
+  }
+});
