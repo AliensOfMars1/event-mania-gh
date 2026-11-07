@@ -318,8 +318,8 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; color: var
 
 .hero-content .eyebrow {
   display: inline-block;
-  color: var(--amber);
-  border: 1px solid rgba(212,148,58,0.4);
+  color: var(--white); /* Changed to white */
+  border: 1px solid rgba(255,255,255,0.3); /* Changed to a subtle white border */
   padding: 8px 24px;
   border-radius: 20px;
   background: rgba(255,255,255,0.05);
