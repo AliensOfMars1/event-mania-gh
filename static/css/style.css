@@ -976,3 +976,77 @@ a.gallery-item > span {
   border-color: var(--terracotta);
   transform: translateY(-3px);
 }
+
+
+
+/* ─── Testimonial Slider ─── */
+.testimonial-slider {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 250px; /* Prevents the page from jumping when text lengths differ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px; /* Space for the arrows */
+}
+
+.testimonial-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.testimonial-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Slider Buttons */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--terracotta);
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+.slider-btn:hover {
+  color: var(--charcoal);
+}
+
+.slider-btn.prev {
+  left: 0;
+}
+
+.slider-btn.next {
+  right: 0;
+}
+
+/* Mobile adjustments for slider */
+@media (max-width: 640px) {
+  .testimonial-slider {
+    padding: 0 10px;
+    min-height: 320px; /* Taller on mobile because text wraps more */
+  }
+  
+  .slider-btn {
+    display: none; /* Hide arrows on mobile, let it auto-play or swipe */
+  }
+}
