@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, Response
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "change-me-in-production")
@@ -42,7 +42,7 @@ def portfolio():
         {"title": "White Wedding",         "category": "Weddings",       "img": "whitewedding2.jpg"},        
         {"title": "Traditional Ceremony",  "category": "Traditional",    "img": "traditional2.jpg"},
         {"title": "Prewedding photoshoot",  "category": "Traditional",    "img": "traditional3.jpg"},
-        {"title": "Muslim Wedding",        "category": "Muslim Wedding", "img": "muslimwedding2.jpg"},        
+        {"title": "Muslim Wedding",        "category": "Muslim Wedding", "img": "muslimwedding4.jpeg"},        
         {"title": "Garden Wedding",        "category": "Weddings",       "img": "wedding-1.jpg"},
         {"title": "Golden Birthday",       "category": "Birthdays",      "img": "birthday-1.jpg"},
         {"title": "Corporate Gala",        "category": "Corporate",      "img": "corporate-1.jpg"},         
@@ -58,8 +58,9 @@ def portfolio():
         {"title": "Promotional Event",     "category": "Corporate",      "img": "corporate3.jpg"}, 
         {"title": "Promotional Event",     "category": "Corporate",      "img": "corporate4.jpg"},               
         {"title": "Baby Christening",      "category": "Christening",    "img": "christening1.jpg"},
-        {"title": "Muslim Wedding",        "category": "Muslim Wedding", "img": "muslimwedding1.jpg"},
-        {"title": "Celebration of Life",   "category": "Funeral",        "img": "funeral1.jpg"},
+        {"title": "Muslim Wedding",        "category": "Muslim Wedding", "img": "muslimwedding1.jpeg"},
+        {"title": "Muslim Wedding",        "category": "Muslim Wedding", "img": "muslimwedding2.jpeg"},
+        {"title": "Muslim Wedding",        "category": "Muslim Wedding", "img": "muslimwedding3.jpeg"},                
         {"title": "Celebration of Life",   "category": "Funeral",        "img": "funeral2.jpg"},
     ]
     return render_template("portfolio.html", items=items)
@@ -74,6 +75,41 @@ def contact():
 @app.errorhandler(404)
 def not_found(e):
     return render_template("404.html"), 404
+
+@app.route("/sitemap.xml")
+def sitemap():
+    # List all the pages you want search engines to crawl
+    pages = [
+        "index",
+        "portfolio",
+        "services",
+        "about",
+        "contact"
+    ]
+    
+    # Start the XML string
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    # Loop through pages and build the URLs dynamically
+    for page in pages:
+        # _external=True generates the full domain automatically (e.g., https://eventmaniagh.com/)
+        # _scheme="https" forces secure URLs
+        url = url_for(page, _external=True, _scheme="https")
+        
+        # Set priorities based on the page
+        priority = "1.0" if page == "index" else "0.8"
+        
+        xml += '  <url>\n'
+        xml += f'    <loc>{url}</loc>\n'
+        xml += f'    <changefreq>weekly</changefreq>\n'
+        xml += f'    <priority>{priority}</priority>\n'
+        xml += '  </url>\n'
+        
+    xml += '</urlset>'
+    
+    # Return the response with the correct XML header
+    return Response(xml, mimetype='application/xml')    
 
 
 if __name__ == "__main__":
